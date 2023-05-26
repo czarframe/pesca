@@ -1,0 +1,7 @@
+{
+  "name": "pesca",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
