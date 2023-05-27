@@ -1,0 +1,24 @@
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button (click)="trocarPagina('/home')" tab="home">
+          <ion-icon name="home-outline"></ion-icon>
+          Home
+        </ion-tab-button>
+        <ion-tab-button (click)="trocarPagina('/peixe')" tab="peixes">
+          <ion-icon name="fish-outline"></ion-icon>
+          Peixes
+        </ion-tab-button>
+        <ion-tab-button (click)="trocarPagina('/trofeus')" tab="trofeus">
+          <ion-icon name="trophy-outline"></ion-icon>
+          Troféus
+        </ion-tab-button>
+        <ion-tab-button (click)="trocarPagina('/perfil')" tab="perfil">
+          <ion-icon name="person-circle-outline"></ion-icon>
+          Perfil
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>
