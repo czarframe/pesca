@@ -1,0 +1,133 @@
+<ion-header id="main-content">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-img src="../../assets/icon/logo.png" class="header-img"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-row>
+        <ion-col class="d-flex">
+          <ion-title>Pesca</ion-title>
+          <ion-img
+            src="../../assets/icon/logo.png"
+            class="header-img"
+          ></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list lines="full">
+      <ion-item>
+        <a>Perfil</a>
+      </ion-item>
+      <ion-item>
+        <a>Peixes</a>
+      </ion-item>
+      <ion-item>
+        <a>Troféus</a>
+      </ion-item>
+      <ion-item>
+        <a routerLink="/login" class="text-decoration-none text-reset">Sair</a>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-title>Cadastrar Peixe</ion-title>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <form [formGroup]="meuFormulario" (ngSubmit)="cadastrar()">
+          <ion-row>
+            <ion-col size="12">
+              <ion-input
+                label="Nome"
+                type="text"
+                name="nome"
+                required
+                label-placement="floating"
+                fill="outline"
+                placeholder="Nome"
+                formControlName="nome"
+              ></ion-input>
+            </ion-col>
+            <ion-col size="12">
+              <ion-input
+                label="Peso"
+                type="number"
+                name="peso"
+                label-placement="floating"
+                fill="outline"
+                placeholder="Peso"
+                formControlName="peso"
+              ></ion-input>
+            </ion-col>
+            <ion-col size="12">
+              <ion-input
+                label="Comprimento"
+                type="number"
+                name="comprimento"
+                label-placement="floating"
+                fill="outline"
+                placeholder="Comprimento"
+                formControlName="comprimento"
+              ></ion-input>
+            </ion-col>
+            <ion-col size="12">
+              <label for="formFile" class="form-label">Imagem</label>
+              <input
+                type="file"
+                name="imagem"
+                placeholder="Imagem"
+                class="form-control"
+                (change)="selecionarImagem($event)"
+              />
+            </ion-col>
+            <ion-col
+              size="12"
+              class="d-flex justify-content-center"
+              *ngIf="imagemPeixe"
+            >
+              <img
+                [src]="imagemPeixeUrl"
+                class="img-selecionada"
+                alt="Imagem selecionada"
+              />
+            </ion-col>
+            <ion-col size="6">
+              <ion-button
+                color="warning"
+                expand="block"
+                fill="outline"
+                (click)="voltar()"
+                >Voltar</ion-button
+              >
+            </ion-col>
+            <ion-col size="6">
+              <ion-button
+                color="success"
+                expand="block"
+                fill="outline"
+                type="submit"
+                >Cadastrar</ion-button
+              >
+            </ion-col>
+          </ion-row>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<app-footer></app-footer>
