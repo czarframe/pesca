@@ -8,6 +8,7 @@ import { CadastroPageRoutingModule } from './cadastro-routing.module';
 
 import { CadastroPage } from './cadastro.page';
 import { FooterComponent } from '../../shared/components/footer/footer.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [CadastroPage],
@@ -18,6 +19,7 @@ import { FooterComponent } from '../../shared/components/footer/footer.component
     CadastroPageRoutingModule,
     FooterComponent,
     ReactiveFormsModule,
+    NgxMaskModule.forRoot(),
   ],
 })
 export class CadastroPageModule {}

@@ -246,7 +246,7 @@
 }
 
 ion-title {
-  padding-left: 0.75rem;
+  padding: 0.25rem;
 }
 
 .carousel-img {
@@ -254,7 +254,7 @@ ion-title {
   object-fit: cover;
 }
 
-.form-control {
+.form-control[type="file"] {
   font-size: 0.75rem !important;
 }
 

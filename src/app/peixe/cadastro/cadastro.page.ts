@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastro',
@@ -11,19 +10,26 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CadastroPage implements OnInit {
   imagemPeixe: File | any;
   imagemPeixeUrl: string | any;
-  peso = 0;
-  nome = '';
-  meuFormulario: FormGroup;
+  nomeControl: FormControl;
+  pesoControl: FormControl;
+  comprimentoControl: FormControl;
+  imagemControl: FormControl;
+  formulario: FormGroup;
 
   constructor(
     private navCtrl: NavController,
     private formBuilder: FormBuilder
   ) {
-    this.meuFormulario = this.formBuilder.group({
-      nome: ['', Validators.required],
-      peso: ['', Validators.required],
-      comprimento: ['', Validators.required],
-      imagem: ['', Validators.required],
+    this.nomeControl = new FormControl('', Validators.required);
+    this.pesoControl = new FormControl('', Validators.required);
+    this.comprimentoControl = new FormControl('', Validators.required);
+    this.imagemControl = new FormControl('', Validators.required);
+
+    this.formulario = this.formBuilder.group({
+      nome: this.nomeControl,
+      peso: this.pesoControl,
+      comprimento: this.comprimentoControl,
+      imagem: this.imagemControl,
     });
   }
 

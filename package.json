@@ -29,6 +29,7 @@
     "@ionic/angular": "^7.0.0",
     "bootstrap": "^5.2.3",
     "ionicons": "^7.0.0",
+    "ngx-mask": "^14.2.4",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
@@ -68,5 +69,5 @@
   "description": "An Ionic project",
   "config": {
     "ionic_sass": "./sass.config.js"
-}
+  }
 }

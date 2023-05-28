@@ -48,41 +48,41 @@
     </ion-row>
     <ion-row>
       <ion-col size="12">
-        <form [formGroup]="meuFormulario" (ngSubmit)="cadastrar()">
+        <form [formGroup]="formulario" (ngSubmit)="cadastrar()">
           <ion-row>
             <ion-col size="12">
-              <ion-input
-                label="Nome"
+              <label class="form-label">Nome</label>
+              <input
+                placeholder="Nome"
                 type="text"
                 name="nome"
-                required
-                label-placement="floating"
-                fill="outline"
-                placeholder="Nome"
+                class="form-control"
                 formControlName="nome"
-              ></ion-input>
+              />
             </ion-col>
             <ion-col size="12">
-              <ion-input
-                label="Peso"
-                type="number"
-                name="peso"
-                label-placement="floating"
-                fill="outline"
+              <label class="form-label">Peso</label>
+              <input
                 placeholder="Peso"
+                type="text"
+                name="peso"
+                class="form-control"
                 formControlName="peso"
-              ></ion-input>
+                mask="00.00 || 0000.00"
+                suffix="kg"
+              />
             </ion-col>
             <ion-col size="12">
-              <ion-input
-                label="Comprimento"
-                type="number"
-                name="comprimento"
-                label-placement="floating"
-                fill="outline"
+              <label class="form-label">Comprimento</label>
+              <input
                 placeholder="Comprimento"
+                type="text"
+                name="comprimento"
+                class="form-control"
                 formControlName="comprimento"
-              ></ion-input>
+                mask="00.00"
+                suffix="m"
+              />
             </ion-col>
             <ion-col size="12">
               <label for="formFile" class="form-label">Imagem</label>
