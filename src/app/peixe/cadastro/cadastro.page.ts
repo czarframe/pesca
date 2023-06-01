@@ -1,6 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  NavController,
+  ToastController,
+  AlertController,
+} from '@ionic/angular';
+
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { PeixeService } from 'src/app/service/peixe.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -18,7 +29,10 @@ export class CadastroPage implements OnInit {
 
   constructor(
     private navCtrl: NavController,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private service: PeixeService,
+    private toastController: ToastController,
+    private alertController: AlertController
   ) {
     this.nomeControl = new FormControl('', Validators.required);
     this.pesoControl = new FormControl('', Validators.required);
@@ -50,8 +64,39 @@ export class CadastroPage implements OnInit {
     }
   }
 
-  cadastrar() {
-    alert('Sucesso!');
+  async cadastrar() {
+    const nome = this.formulario.value.nome;
+    const peso = this.formulario.value.peso;
+    const comprimento = this.formulario.value.comprimento;
+
+    if (!nome || !peso || !comprimento) {
+      const alert = await this.alertController.create({
+        header: 'Erro',
+        message: 'Por favor, preencha todos os campos.',
+        buttons: ['OK'],
+      });
+      alert.present();
+      return;
+    }
+
+    const peixe = {
+      nome: nome,
+      peso: peso,
+      comprimento: comprimento,
+    };
+
+    this.service.postPeixe(peixe);
+
+    const toast = await this.toastController.create({
+      message: 'Peixe cadastrado com sucesso!',
+      duration: 2000,
+      position: 'bottom',
+    });
+    toast.present();
+
+    setTimeout(() => {
+      this.navCtrl.navigateBack('/peixe');
+    }, 2000);
   }
 
   voltar() {
