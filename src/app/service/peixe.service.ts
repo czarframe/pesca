@@ -39,9 +39,9 @@ export class PeixeService {
   }
 
   public deletePeixe(id: number) {
-    return new Promise((ret) => {
-      this.http.delete(this.host + '{' + id + '}').subscribe((dados) => {
-        console.log(dados);
+    return new Promise<void>((resolve) => {
+      this.http.delete(this.host + '/' + id).subscribe((dados) => {
+        resolve();
       });
     });
   }
