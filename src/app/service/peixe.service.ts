@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Peixe } from '../interface/interface.peixe';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ export class PeixeService {
 
   private host = 'http://localhost:8080/peixe';
 
-  public postPeixe(obj: any) {
+  public postPeixe(obj: Peixe) {
     return new Promise((ret) => {
       let headers = new HttpHeaders();
       headers.append('Content-Type', 'application/json; charset=UTF-8');
@@ -23,9 +24,10 @@ export class PeixeService {
   }
 
   public getAllPeixes() {
-    return new Promise((ret) => {
-      this.http.get(this.host).subscribe((Peixe) => {
-        ret(Peixe);
+    return new Promise((resolve) => {
+      this.http.get(this.host).subscribe((response: any) => {
+        const peixes = response.content;
+        resolve(peixes);
       });
     });
   }

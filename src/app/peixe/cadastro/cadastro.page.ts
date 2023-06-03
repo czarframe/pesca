@@ -12,6 +12,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { PeixeService } from 'src/app/service/peixe.service';
+import { Peixe } from 'src/app/interface/interface.peixe';
 
 @Component({
   selector: 'app-cadastro',
@@ -79,7 +80,8 @@ export class CadastroPage implements OnInit {
       return;
     }
 
-    const peixe = {
+    const peixe: Peixe = {
+      id: 0,
       nome: nome,
       peso: peso,
       comprimento: comprimento,
